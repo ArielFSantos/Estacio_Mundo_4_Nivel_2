@@ -12,13 +12,20 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text('Title Section'),
+          title: const Text('Easy Traveling'),
         ),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset(
+              'imagens/lake.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
             buildTitleSection(),
-            buildButtonSection(context), // Passando o contexto como parâmetro
+            buildButtonSection(context),
+            buildTextSection(),
+            // Outros elementos do corpo do aplicativo podem ser adicionados aqui.
           ],
         ),
       ),
@@ -37,14 +44,14 @@ class MyApp extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
-                    'Oeschinen Lake Campground',
+                    'Baía de Phang Nga',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Text(
-                  'Kandersteg, Switzerland',
+                  'Phuket, Thailand',
                   style: TextStyle(
                     color: Colors.grey[500],
                   ),
@@ -72,6 +79,16 @@ class MyApp extends StatelessWidget {
         _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
         _buildButtonColumn(color, Icons.share, 'SHARE'),
       ],
+    );
+  }
+
+  Widget buildTextSection() {
+    return Container(
+      padding: const EdgeInsets.all(32),
+      child: const Text(
+        'A baía de Phang Nga é uma baía no estreito de Malaca, situada entre a ilha de Phuket e a a parte continental do istmo de Kra, no sul da Tailândia. Desde 1981 que uma grande parte da baía é uma área protegida denominada Parque Nacional de Ao Phang Nga. Na baía há várias escarpas calcárias com cavernas, sistemas de cavernas desmoronadas e sítios arqueológicos. Há cerca de 10 000 anos, quando o nível do mar era mais baixo, era possível caminhar desde Phuket a Krabi.',
+        softWrap: true,
+      ),
     );
   }
 
